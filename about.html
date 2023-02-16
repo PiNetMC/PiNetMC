@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="./css/about.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./files/PiNetLogo.png">
+    <link rel="icon" href="./files/PiNetLogo.png">
+    <link rel="shortcut icon" href="./files/PiNetLogo.png">
+    <link rel="apple-touch-icon" href="./files/PiNetLogo.png">
+    <script src="https://kit.fontawesome.com/b60596f9d0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div style="background-image: url(./files/PiNetBackground.png);background-repeat:no-repeat;background-size:cover;">
+    <div id="sidenav" class="sidenav">
+        <a class="rainbow_text_animated" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a class="rainbow_text_animated" href="./index.html">PiGames</a>
+        <a class="rainbow_text_animated" href="./about.html">About</a>
+        <a class="rainbow_text_animated" href="./discord.html">Discord</a>
+        <a id="github-link" class="rainbow_text_animated" href="https://github.com/PiNetMC/PiNetMC.github.io">Github</a>
+    </div>
+    <header id="nav" class="navbar-header">
+        <div class="container">
+            <div class="logo-container">
+                <a class="logo-header" href="./index.html">
+                    <img class="logo" alt="logo" src="./files/PiNetLogo.png">
+                </a>
+            </div>
+            <nav>
+                <ul id="main-nav">
+                    <li><a href="./index.html">PiGames</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./discord.html">Discord</a></li>
+                    <li><a id="github-link" class="rainbow_text_animated" href="https://github.com/pigames-server">Github</a></li>
+                    <button id="sideBar-btn" class="button-30" onclick="nav()">☰</button>
+                </ul>
+            </nav>
+            <button id="sideBar-btn-second" class="button-30" onclick="nav()">☰</button>
+        </div>
+    </header>
+    <main id="main">
+        <p id="testText">About</p>
+        <div id="about-wrapper">
+            <div>
+                <p id="about-header" class="rainbow_text_animated">Launch date 8/19</p>
+                <div class="tooltip">
+                    <p id="ip-header">Server IP</p>
+                    <p id="ip">pinetmc.hopto.org:19132 <a id="copy" onclick="CopyToClipboard('ip-temp')" onmouseout="outFunc()">Copy</a></p>
+                    <p id="ip-temp" style="display:none">pinetmc.hopto.org:19132</p>
+                    <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        function CopyToClipboard(id) {
+            var tooltip = document.getElementById("myTooltip");
+            tooltip.innerHTML = "Copied!";
+            var r = document.createRange();
+            r.selectNode(document.getElementById(id));
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(r);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+        }
+
+        function outFunc() {
+            var tooltip = document.getElementById("myTooltip");
+            tooltip.innerHTML = "Copy to clipboard";
+        }
+        
+        var duration = 1 * 1000;
+        var end = Date.now() + duration;
+
+        (function frame() {
+            confetti({
+                particleCount: 7,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 }
+            });
+            confetti({
+                particleCount: 7,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 }
+            });
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        }());
+</script>
+</div>
+</body>
+</html>
