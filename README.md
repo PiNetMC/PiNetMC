@@ -1,3 +1,6 @@
 # PiGames-mcpi-website
-Website for PiGames<br>
+Website for PiNetMC<br>
 In development
+<br>
+<br>
+This is an mcpi server
